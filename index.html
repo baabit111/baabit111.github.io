@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Baabit Services LLC, Tampa, Florida: accessibility services including document remediation, website and app accessibility testing, audio and alternate formats, and consulting.">
+<title>Baabit Services LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: clean corporate page. White header, full-width blue banner, card rows on white/grey bands, dark footer. */
+:root{
+  --white:#ffffff; --band:#ffffff; --ink:#111111; --muted:#333333; --line:#d5dbe3;
+  --brand:#0a4fa0; --brand-dark:#073a75; --brand-ink:#ffffff; --brand-soft:#eef4fb; --footer:#111111;
+  --font:"Atkinson Hyperlegible", "Segoe UI", Arial, system-ui, sans-serif;
+  --measure:62ch;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--white);color:var(--ink);font:17px/1.6 var(--font);margin:0}
+a{color:var(--brand);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--brand);color:var(--brand-ink);padding:10px 14px;border-radius:4px;z-index:10;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--font);text-wrap:balance;margin:0;font-weight:700}
+p{max-width:var(--measure)}
+
+header.site{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.mark{width:36px;height:36px;border-radius:8px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:700;font-size:20px}
+.brand b{font-size:19px;letter-spacing:.01em}
+nav.top ul{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;list-style:none;margin:0;padding:0}
+nav.top a{color:var(--ink);text-decoration:none;font-size:16px;padding:6px 0;border-bottom:2px solid transparent}
+nav.top a:hover{border-bottom-color:var(--brand)}
+nav.top a.cta{background:var(--brand);color:var(--brand-ink);padding:8px 16px;border-radius:999px;border-bottom:0}
+nav.top a.cta:hover{background:var(--brand-dark);color:#ffffff}
+
+.banner{background:#ffffff;color:#111111;border-bottom:1px solid var(--line)}
+.banner .wrap{padding-block:64px 72px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
+@media (max-width:860px){.banner .wrap{grid-template-columns:1fr;padding-block:48px 56px}}
+.banner h1{font-size:clamp(32px,5vw,50px);line-height:1.1;color:#111111}
+.banner p{font-size:20px;color:#333333;margin:18px 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;font:700 17px var(--font);padding:12px 22px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn.light{background:var(--brand);color:#ffffff}
+.btn.outline{border-color:var(--brand);color:var(--brand);background:#ffffff}
+.btn.solid{background:var(--brand);color:var(--brand-ink)}
+.facts{background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.facts div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.facts div:last-child{border-bottom:0;padding-bottom:0}
+.facts span{color:#333333;font-size:15px}
+.facts b{color:#111111;font-size:16px;text-align:right}
+
+section.band{padding-block:64px}
+section.alt{background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.head{max-width:720px;margin-bottom:32px}
+.head h2{font-size:32px;line-height:1.2}
+.head p{color:var(--muted);font-size:18px;margin:12px 0 0}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;box-shadow:0 1px 2px rgba(10,30,60,.06)}
+.icon{width:48px;height:48px;border-radius:12px;background:var(--brand-soft);display:grid;place-items:center}
+.icon svg{width:26px;height:26px;fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:20px;line-height:1.3}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card ul{margin:0;padding-left:20px;font-size:16px}
+.card li{margin:4px 0}
+.card .std{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why h3{font-size:20px;margin-bottom:6px}
+.why p{margin:0;color:var(--muted)}
+
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:860px){ol.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){ol.steps{grid-template-columns:1fr}}
+ol.steps li{counter-increment:s;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px;min-width:0}
+ol.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font-weight:700;margin-bottom:12px}
+ol.steps h3{font-size:19px}
+ol.steps p{margin:6px 0 0;color:var(--muted);font-size:16px}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:24px;min-width:0}
+.panel h3{font-size:22px;margin-bottom:12px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child th,tr:last-child td{border-bottom:0}
+th{color:var(--muted);font-weight:400;width:40%}
+td{font-weight:700;font-variant-numeric:tabular-nums}
+td.pending{font-weight:400;color:var(--muted);font-style:italic}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:11px 0;border-bottom:1px solid var(--line)}
+ul.list li:last-child{border-bottom:0}
+ul.list li span:last-child{color:var(--muted);font-size:15px}
+
+.contact-band{background:#ffffff;border-top:1px solid var(--line)}
+.contact-band .wrap{padding-block:56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.contact-band h2{font-size:30px}
+.contact-band p{color:var(--muted);margin:8px 0 0}
+.contact{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.email{font-size:19px;font-weight:700;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:11px 20px;user-select:all;overflow-wrap:anywhere}
+
+footer{background:#ffffff;color:#111111;font-size:15px;border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Baabit Services LLC, home">
+      <span class="mark" aria-hidden="true">B</span><b>Baabit Services LLC</b>
+    </a>
+    <nav class="top" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">How we work</a></li>
+        <li><a href="#company">Company data</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a class="cta" href="#contact">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="banner" id="top" aria-labelledby="h-top">
+    <div class="wrap">
+      <div>
+        <h1 id="h-top">Accessibility services that make information usable for everyone</h1>
+        <p>We make documents, websites and media accessible to people with disabilities, and deliver every project to a published standard.</p>
+        <div class="actions">
+          <a class="btn light" href="#services">Explore services</a>
+          <a class="btn outline" href="#contact">Contact us</a>
+        </div>
+      </div>
+      <div class="facts" aria-label="Company at a glance">
+        <div><span>Company</span><b>Florida LLC</b></div>
+        <div><span>Location</span><b>Tampa, Florida</b></div>
+        <div><span>Standards</span><b>Section 508 · WCAG 2.2</b></div>
+        <div><span>Customers</span><b>Public agencies and businesses</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services" aria-labelledby="h-services">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="h-services">Our services</h2>
+        <p>Four service lines, each checked against a published standard so results can be verified.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 14l2.5 2.5L16 11"/></svg></span>
+          <h3>Document remediation</h3>
+          <p>PDFs, Word files, slides and forms that work with screen readers and keyboards.</p>
+          <ul><li>Tags, reading order, headings</li><li>Alternative text</li><li>Accessible tables and forms</li></ul>
+          <p class="std">Section 508 · PDF/UA</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="11" cy="14" r="2.2"/><path d="M12.7 15.7L15 18"/></svg></span>
+          <h3>Website and app testing</h3>
+          <p>Audits with automated tools and hands-on screen reader and keyboard testing.</p>
+          <ul><li>Issues ranked by impact</li><li>Retesting after fixes</li><li>VPAT / ACR reports</li></ul>
+          <p class="std">WCAG 2.1 / 2.2 AA · Section 508</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span>
+          <h3>Audio and alternate formats</h3>
+          <p>Print material turned into formats for readers with low vision, blindness or reading disabilities.</p>
+          <ul><li>Narrated audio</li><li>Digital talking books</li><li>Large print and accessible e-text</li></ul>
+          <p class="std">DAISY (ANSI/NISO Z39.86) · EPUB Accessibility</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4h5v6h-5z"/><path d="M18.5 10v3"/></svg></span>
+          <h3>Consulting and training</h3>
+          <p>Help for teams that want accessibility built into everyday work.</p>
+          <ul><li>Policy and procurement language</li><li>Training for authors and developers</li><li>Accessible templates</li></ul>
+          <p class="std">Section 508 · WCAG 2.2</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="h-why">
+    <div class="wrap">
+      <div class="head"><h2 id="h-why">Why work with us</h2></div>
+      <div class="why">
+        <div><h3>Standards, not opinions</h3><p>Every deliverable is checked against Section 508, WCAG or the format's own specification, and comes with a report.</p></div>
+        <div><h3>Quality you approve first</h3><p>We deliver a small sample before full production, so you set the quality bar.</p></div>
+        <div><h3>Built for volume</h3><p>Our own automation tools handle large collections, with people reviewing the results.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="approach" aria-labelledby="h-approach">
+    <div class="wrap">
+      <div class="head"><h2 id="h-approach">How we work</h2><p>A simple four-step process for every engagement.</p></div>
+      <ol class="steps">
+        <li><h3>Scope</h3><p>We agree on the materials, the standard each must meet and the timeline.</p></li>
+        <li><h3>Sample</h3><p>You review and approve a small sample first.</p></li>
+        <li><h3>Produce</h3><p>We complete the full set and report progress weekly.</p></li>
+        <li><h3>Verify</h3><p>Each item is checked against the standard and delivered with a report.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band alt" id="company" aria-labelledby="h-company">
+    <div class="wrap">
+      <div class="head"><h2 id="h-company">Company data</h2><p>Registration details for contracting officers.</p></div>
+      <div class="cols">
+        <div class="panel">
+          <h3>Registration</h3>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr">Baabit Services LLC registration details</caption>
+              <tbody>
+                <tr><th scope="row">Legal name</th><td>BAABIT SERVICES LLC</td></tr>
+                <tr><th scope="row">Organized in</th><td>Florida</td></tr>
+                <tr><th scope="row">Location</th><td>Tampa, Florida</td></tr>
+                <tr><th scope="row">UEI</th><td class="pending">SAM.gov registration in progress</td></tr>
+                <tr><th scope="row">CAGE code</th><td class="pending">SAM.gov registration in progress</td></tr>
+                <tr><th scope="row">NAICS</th><td>541511 · 541512 · 541990 · 561410</td></tr>
+                <tr><th scope="row">PSC</th><td>DA01 · R499</td></tr>
+                <tr><th scope="row">Point of contact</th><td>Mohamed Baabit, Founder</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Standards we work to</h3>
+          <ul class="list">
+            <li><span>Section 508</span><span>36 CFR 1194</span></li>
+            <li><span>Web Content Accessibility Guidelines</span><span>WCAG 2.1 / 2.2 AA</span></li>
+            <li><span>Accessible PDF</span><span>PDF/UA (ISO 14289)</span></li>
+            <li><span>Digital talking books</span><span>ANSI/NISO Z39.86</span></li>
+            <li><span>Accessible e-books</span><span>EPUB Accessibility 1.1</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="accessibility" aria-labelledby="h-a11y">
+    <div class="wrap">
+      <div class="head"><h2 id="h-a11y">Accessibility statement</h2>
+        <p>This site is built to WCAG 2.1 AA. It works with a keyboard alone, has a skip link and labeled sections, uses high-contrast dark text on a white background, and uses a typeface designed for readers with low vision. If anything is hard to use, tell us and we will fix it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band" id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div>
+        <h2 id="h-contact">Let's talk about your project</h2>
+        <p>Tell us what you need made accessible and when you need it.</p>
+      </div>
+      <div class="contact">
+        <span class="email" id="email">moh.baabit@gmail.com</span>
+        <button class="btn solid" type="button" id="copy">Copy email</button>
+        <span id="copy-status" role="status" style="font-size:15px;color:var(--muted)"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Baabit Services LLC · Tampa, Florida</span>
+    <span>An independent company. Not affiliated with any government agency.</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const copy = document.getElementById("copy"), status = document.getElementById("copy-status"), email = document.getElementById("email");
+  copy.addEventListener("click", () => {
+    navigator.clipboard.writeText(email.textContent).then(() => status.textContent = "Copied.").catch(() => {
+      const r = document.createRange(); r.selectNodeContents(email); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = "Selected. Press Ctrl+C or Cmd+C to copy.";
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
